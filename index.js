@@ -25,8 +25,8 @@ mongoose.connect(dbconfig.url,{ useNewUrlParser: true}).then(()=>
 })
 
 require('./Routes/defaultRoutes.js')(app);
-
-app.listen(4400,()=>{
+app.set('port', process.env.PORT || 3000);
+app.listen(app.get('port'),()=>{
     console.log('started sertver');
 })
 
